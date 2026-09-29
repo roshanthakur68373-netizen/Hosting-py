@@ -1,5 +1,3 @@
-from flask import Flask
-from threading import Thread
 # EXU CODER - Simple Render Telegram Hosting Bot
 # Single-file version. No .env / no requirements.txt needed.
 # Render Build Command:
@@ -21,14 +19,14 @@ from telebot import types
 # =========================================================
 # CONFIG - CHANGE THESE
 # =========================================================
-TOKEN = os.environ.get("BOT_TOKEN", "").strip()
 
-if not TOKEN:
-    raise RuntimeError("BOT_TOKEN environment variable is required. Set it in Render Environment.")
-OWNER_ID = 6567632240
-ADMIN_ID = OWNER_ID
+TOKEN = "8820843823:AAFyFcuLhkhMylK1BTpFYsc5h5duqLvF-SU"
+
+OWNER_ID = 5585016655
+ADMIN_ID = 5585016655
 
 OWNER_USERNAME = "@Harshit_5stare"
+UPDATE_CHANNEL = "https://t.me/GUILD_GLORY_BOT_LEADER"
 
 FREE_LIMIT = 10
 PREMIUM_LIMIT = 15
@@ -851,24 +849,6 @@ def stop_all():
     running.clear()
 
 # =========================================================
-# RENDER + UPTIMEROBOT HEALTH SERVER
-# =========================================================
-
-_web_app = Flask(__name__)
-
-@_web_app.get("/")
-def _home():
-    return "Telegram Hosting Bot is running", 200
-
-@_web_app.get("/health")
-def _health():
-    return {"status": "ok", "service": "telegram-hosting-bot"}, 200
-
-def _run_web_server():
-    port = int(os.environ.get("PORT", "10000"))
-    _web_app.run(host="0.0.0.0", port=port, threaded=True)
-
-# =========================================================
 # START
 # =========================================================
 
@@ -876,12 +856,8 @@ init_db()
 
 print("=" * 45)
 print("🤖 EXU CODER")
-print("🚀 Render Web Service starting...")
-print("❤️ Health: /health")
+print("🚀 Render Worker starting...")
 print("=" * 45)
-
-# Render needs an HTTP server; UptimeRobot can ping /health.
-Thread(target=_run_web_server, daemon=True).start()
 
 while True:
     try:
