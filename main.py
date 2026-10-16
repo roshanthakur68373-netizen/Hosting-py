@@ -20,10 +20,10 @@ from telebot import types
 # CONFIG - CHANGE THESE
 # =========================================================
 
-TOKEN = "8820843823:AAFyFcuLhkhMylK1BTpFYsc5h5duqLvF-SU"
+TOKEN = "8663164385:AAHRn4INDGEGZO4mH4tW6O-ZyOQw83Va1ZQ"
 
-OWNER_ID = 5585016655
-ADMIN_ID = 5585016655
+OWNER_ID = 6567632240
+ADMIN_ID = 6567632240
 
 OWNER_USERNAME = "@Harshit_5stare"
 UPDATE_CHANNEL = "https://t.me/GUILD_GLORY_BOT_LEADER"
